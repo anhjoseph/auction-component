@@ -101,6 +101,7 @@ a:hover {
 
 .place-bid:hover {
   background-color: rgba(25, 52, 109, 0.94);
+  cursor: pointer;
 }
 
 .instruction {
@@ -123,6 +124,7 @@ a:hover {
 
 .add-watcher:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .watchers {
