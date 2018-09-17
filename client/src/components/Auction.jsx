@@ -71,7 +71,7 @@ class Auction extends React.Component {
       this.setState({
         bidCount,
         currentBid,
-        message: `Enter $${Number(currentBid) + 0.01} or more`,
+        message: `Enter $${parseInt(currentBid, 10) + 0.01} or more`,
       });
     });
   }
@@ -89,33 +89,34 @@ class Auction extends React.Component {
 
   handleBidSubmit(e) {
     e.preventDefault();
+    e.target.reset();
     const regex = /^[1-9]\d*(?:\.\d{0,2})$/;
     const { secondsLeft, bidInput, minimum, currentBid, id } = this.state;
-    if (!Number(secondsLeft)) {
+    if (!parseInt(secondsLeft, 10)) {
       this.setState({
         alert: 'This auction has ended',
       });
     } else if (
       !regex.test(bidInput) ||
-      Number(bidInput) === Number(currentBid)
+      parseInt(bidInput, 10) === parseInt(currentBid, 10)
     ) {
       this.setState({
         alert: 'Please enter a valid bid amount',
       });
-    } else if (Number(bidInput) < Number(minimum)) {
+    } else if (parseInt(bidInput, 10) < parseInt(minimum, 10)) {
       this.setState({
         alert: 'Invalid bid, your bid is below the minimum',
       });
-    } else if (Number(bidInput) < Number(currentBid)) {
+    } else if (parseInt(bidInput, 10) < parseInt(currentBid, 10)) {
       this.setState({
         alert: 'Invalid bid, your bid is lower than the current bid',
       });
     } else {
       postBid({ id, bidInput }).then(() => {
+        this.fetchBids();
         this.setState({
           alert: '',
         });
-        this.fetchBids();
       });
     }
   }

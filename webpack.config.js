@@ -4,6 +4,7 @@ const SRC_DIR = path.resolve(__dirname, './client/src');
 const BUILD_DIR = path.resolve(__dirname, './client/public');
 
 module.exports = {
+  mode: 'production',
   entry: path.resolve(SRC_DIR, 'index.jsx'),
   output: {
     filename: 'bundle.js',
@@ -18,7 +19,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/env', '@babel/react'],
+              presets: ['env', 'react'],
             },
           },
         ],
