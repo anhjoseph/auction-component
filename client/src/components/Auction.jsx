@@ -95,7 +95,10 @@ class Auction extends React.Component {
       this.setState({
         alert: 'This auction has ended',
       });
-    } else if (!regex.test(bidInput)) {
+    } else if (
+      !regex.test(bidInput) ||
+      Number(bidInput) === Number(currentBid)
+    ) {
       this.setState({
         alert: 'Please enter a valid bid amount',
       });
