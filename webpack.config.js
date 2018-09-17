@@ -4,7 +4,6 @@ const SRC_DIR = path.resolve(__dirname, './client/src');
 const BUILD_DIR = path.resolve(__dirname, './client/public');
 
 module.exports = {
-  mode: 'development',
   entry: path.resolve(SRC_DIR, 'index.jsx'),
   output: {
     filename: 'bundle.js',
@@ -18,29 +17,28 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: { presets: ['env', 'react'] },
+            options: {
+              presets: ['@babel/env', '@babel/react'],
+            },
           },
         ],
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader?sourceMap',
-          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-        ],
-      },
-      {
-        test: /\.scss$/,
-        loaders: [
-          'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-          'resolve-url',
-          'sass?sourceMap',
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
         ],
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
 };

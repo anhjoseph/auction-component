@@ -1,11 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 import CSSModules from 'react-css-modules';
-import styles from './Auction.css';
 import getProductInfo from '../services/getProductInfo';
 import getBids from '../services/getBids';
 import postBid from '../services/postBid';
 import postWatcher from '../services/postWatcher';
+import styles from './Auction.css';
 
 class Auction extends React.Component {
   constructor(props) {
@@ -152,7 +152,7 @@ class Auction extends React.Component {
               <span styleName="current-bid">{`$${currentBid}`}</span>
             </div>
             <div styleName="col-3">
-              <a href="#">{`[ ${bidCount} ]`}</a>
+              <a href="/">{`[ ${bidCount} ]`}</a>
             </div>
             <div styleName="bid-form">
               <form onSubmit={this.handleBidSubmit}>
