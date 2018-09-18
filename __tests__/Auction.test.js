@@ -127,6 +127,9 @@ describe('AuctionComponent', () => {
     });
     auctionWrapper.find('form').simulate('submit', {
       preventDefault: () => {},
+      target: {
+        reset: () => {},
+      },
     });
     expect(postBid.default).toHaveBeenCalledTimes(1);
     auctionWrapper.unmount();
@@ -141,6 +144,9 @@ describe('AuctionComponent', () => {
     });
     auctionWrapper.find('form').simulate('submit', {
       preventDefault: () => {},
+      target: {
+        reset: () => {},
+      },
     });
     expect(auctionWrapper.state('alert')).toEqual('This auction has ended');
     auctionWrapper.unmount();
@@ -154,6 +160,9 @@ describe('AuctionComponent', () => {
     });
     auctionWrapper.find('form').simulate('submit', {
       preventDefault: () => {},
+      target: {
+        reset: () => {},
+      },
     });
     expect(auctionWrapper.state('alert')).toEqual(
       'Please enter a valid bid amount',
@@ -170,6 +179,9 @@ describe('AuctionComponent', () => {
     });
     auctionWrapper.find('form').simulate('submit', {
       preventDefault: () => {},
+      target: {
+        reset: () => {},
+      },
     });
     expect(auctionWrapper.state('alert')).toEqual(
       'Invalid bid, your bid is below the minimum',
@@ -186,6 +198,9 @@ describe('AuctionComponent', () => {
     });
     auctionWrapper.find('form').simulate('submit', {
       preventDefault: () => {},
+      target: {
+        reset: () => {},
+      },
     });
     expect(auctionWrapper.state('alert')).toEqual(
       'Invalid bid, your bid is lower than the current bid',
