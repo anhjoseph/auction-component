@@ -32,7 +32,7 @@ Product.hasMany(Bid);
 Bid.belongsTo(Product);
 
 db.sync({ force: false })
-  .then(() => console.log('successfully connected to db'))
+  .then(() => console.log('successfully synced database'))
   // .then(() => db.queryInterface.bulkInsert('products', productSeeds))
   // .then(() => db.queryInterface.bulkInsert('bids', bidSeeds))
   .catch(err => console.log('error syncing database', err));

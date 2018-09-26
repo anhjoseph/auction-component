@@ -3,3 +3,10 @@ coverage
 Gruntfile.js
 aws-credentials.json
 .gitignore
+README.md
+setupTests.js
+.travis.yml
+.eslintrc.json
+.babelrc
+__tests__
+client/src/services/__mocks__

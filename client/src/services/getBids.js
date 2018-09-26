@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getBids = props =>
-  axios.get(`/api/auction/bid`, {
+  axios.get(`${process.env.IP}/api/auction/bid`, {
     params: props,
   });
 
