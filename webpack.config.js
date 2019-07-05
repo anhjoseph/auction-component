@@ -6,15 +6,11 @@ const BUILD_DIR = path.resolve(__dirname, './client/public');
 module.exports = {
   mode: 'production',
   entry: path.resolve(SRC_DIR, 'index.jsx'),
-  output: {
-    filename: 'bundle.js',
-    path: BUILD_DIR,
-  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: [/node_modules/],
+        test: /\.(jsx)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
@@ -31,8 +27,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
             },
           },
         ],
@@ -41,5 +38,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
+  },
+  output: {
+    path: BUILD_DIR,
+    filename: 'bundle.js',
   },
 };

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getProductInfo = props =>
-  axios.get(`${process.env.IP}/api/auction/product`, {
+  axios.get(`${process.env.HOST}/api/auction/product`, {
     params: props,
   });
 

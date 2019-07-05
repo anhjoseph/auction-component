@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postWatcher = props =>
-  axios.post(`${process.env.IP}/api/auction/product`, {
+  axios.post(`${process.env.HOST}/api/auction/product`, {
     params: props,
   });
 
