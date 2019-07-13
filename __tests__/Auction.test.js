@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Auction from '../client/src/components/Auction';
+import { Auction } from '../client/src/components/Auction';
 import * as postBid from '../client/src/services/postBid';
 
 jest.mock('../client/src/services/getProductInfo');

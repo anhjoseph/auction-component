@@ -7,7 +7,7 @@ import postBid from '../services/postBid';
 import postWatcher from '../services/postWatcher';
 import styles from './Auction.css';
 
-class Auction extends React.Component {
+export class Auction extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +55,9 @@ class Auction extends React.Component {
       })
       .then(() => {
         this.fetchBids();
-      });
+      }).catch(e =>
+        console.error(e)
+      );
   }
 
   fetchBids() {
@@ -73,14 +75,18 @@ class Auction extends React.Component {
         currentBid,
         message: `Enter $${parseInt(currentBid, 10) + 0.01} or more`,
       });
-    });
+    }).catch(e => 
+      console.error(e)
+    );
   }
 
   addWatcher() {
     const { id } = this.state;
     postWatcher({ id }).then(() => {
       this.fetchProductInfo();
-    });
+    }).catch(e =>
+      console.error(e)
+    );
   }
 
   handleBidChange(e) {
@@ -117,7 +123,9 @@ class Auction extends React.Component {
         this.setState({
           alert: '',
         });
-      });
+      }).catch(e =>
+        console.error(e)
+      );
     }
   }
 

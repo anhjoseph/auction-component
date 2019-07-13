@@ -15,7 +15,7 @@
       "<rootDir>/setupTests.js"
     ],
     "moduleNameMapper": {
-      "\\.(css|less)$": "identity-obj-proxy"
+      ".+\\.(css|styl|sass|scss)$": "identity-obj-proxy"
     }
   },
   "scripts": {
